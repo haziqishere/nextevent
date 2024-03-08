@@ -33,8 +33,8 @@ function handler(req, res){
     // if request method is GET
     else if (req.method === 'GET') {
         const dummyList = [
-            { id: 'c1', name: 'Max', comment: 'A first comment!' },
-            { id: 'c2', name: 'Manuel', comment: 'A second comment!' },
+            { id: 'c1', name: 'Max', text: 'A first comment!' },
+            { id: 'c2', name: 'Manuel', text: 'A second comment!' },
         ];
 
         res.status(200).json({ comments: dummyList });
