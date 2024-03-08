@@ -49,12 +49,16 @@ async function handler(req, res){
     
     // if request method is GET
     else if (req.method === 'GET') {
-        const dummyList = [
-            { id: 'c1', name: 'Max', text: 'A first comment!' },
-            { id: 'c2', name: 'Manuel', text: 'A second comment!' },
-        ];
 
-        res.status(200).json({ comments: dummyList });
+        //create concrete of client
+        const db = client.db();
+
+        // find method ofcourse to narrow searches. But if we write only 'find()' it will display all
+        // sort to simplify search. sort according to id by using "_id" in descending order
+        // toArray simplify but giving all the entries in Array. Originally we only got a cursor
+        const documents = await db.collection('comments').find().sort({ _id: -1}).toArray();
+
+        res.status(200).json({ comments: documents });
     }
     client.close();
 }
