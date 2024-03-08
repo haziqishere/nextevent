@@ -11,13 +11,13 @@ async function handler(req, res) {
         }
         // Connect to mongodb database. Database password: TsQcfOKPty2q4KgZ
         const client = await MongoClient.connect(
-            'mongodb+srv://haziq:TsQcfOKPty2q4KgZ@cluster0.vwkwzqm.mongodb.net/newsletter?retryWrites=true&w=majority&appName=Cluster0'
+            'mongodb+srv://haziq:TsQcfOKPty2q4KgZ@cluster0.vwkwzqm.mongodb.net/events?retryWrites=true&w=majority&appName=Cluster0'
         );
         // get concrete of the db we connected
         const db = client.db();
 
         // get access to collection
-        await db.collection('emails')
+        await db.collection('newsletter')
         //  run our queries for example insertOne for adding new entries (called doc in mongodb). [need to be JSON]
         .insertOne({email: userEmail});
 
