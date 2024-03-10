@@ -26,7 +26,7 @@ function NewsletterRegistration() {
         'Content-Type': 'application/json',
       },
     })
-      //send data to API to res in api/newsletter.js
+      // send data to API to res in api/newsletter.js
       .then((response) => {
         if (response.ok) {
           return response.json();
@@ -37,6 +37,7 @@ function NewsletterRegistration() {
         });
       })
       .then((data) => {
+        // Show notification
         notificationCtx.showNotification({
           title: 'Success!',
           message: 'Successfully registered for newsletter',
