@@ -32,7 +32,7 @@ function NewsletterRegistration() {
           return response.json();
         }
 
-        response.json().then(data => {
+        return response.json().then(data => {
           throw new Error(data.message || 'Something went wrong!');
         });
       })

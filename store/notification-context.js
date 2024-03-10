@@ -2,8 +2,8 @@ import { createContext, useState } from 'react';
 
 const NotificationContext = createContext({
     notification: null, // { title, message, status}
-    showNotification: function() {notificationData},
-    hideNotification: function() {}
+    showNotification: function(notificationData) {},
+    hideNotification: function() {},
 });
 
 export function NotificationContextProvider(props) {
@@ -19,7 +19,7 @@ export function NotificationContextProvider(props) {
 
     const context = { 
         notification: activeNotification, 
-        showNotificationHandler: showNotificationHandler, 
+        showNotification: showNotificationHandler, 
         hideNotification: hideNotificationHandler
     };
 
